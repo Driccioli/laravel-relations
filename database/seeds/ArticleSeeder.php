@@ -31,7 +31,7 @@ class ArticleSeeder extends Seeder
             $article = new Article();
             $article->title = $faker->words(5, true);
             $article->subtitle = $faker->sentence(1, true);
-            $article->picture_url= $faker->image(null, 640,480);
+            $article->picture_url= $faker->image(null, 640, 480);
             $article->content= $faker->paragraphs(3, true);
 
             $randAuthorKey = array_rand($authorListId, 1);

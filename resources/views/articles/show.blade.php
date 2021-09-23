@@ -1,6 +1,13 @@
-@extends('layouts.app')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{asset('css/app.css')}}" rel="stylesheet">
+</head>
+<body>
     <div class="single-post p-5">
         <button type="button" class="btn btn-primary action-button">
             <a class="button-link back" href="{{route('articles.store')}}"><-Back</a>
@@ -12,7 +19,7 @@
         @if ($article->created_at != $article->updated_at)
             <h6>Date updated: {{$article->updated_at}}</h6>
         @endif
-
+        <img src="{{$article->picture_url}}" alt="">
         <h6>Author: {{$article->author_id}}</h6>
         
         <p>{{$article->content}}</p>
@@ -47,5 +54,6 @@
             </div>
         </div> --}}
     </div>
-
-@endsection
+</body>
+</html>
+    

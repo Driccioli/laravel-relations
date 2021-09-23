@@ -6,3 +6,64 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+
+.content{
+    background-color: rgb(15, 15, 29);
+    color: white;
+    min-height:91vh;
+}
+
+.button-link{
+    &:hover{
+        color:lightblue;
+        text-decoration: none;
+    }
+    color:white;
+}
+
+.table-hover{
+    &:hover{
+        transition: background-color 1s;
+        background-color:rgba(3, 12, 39, 0.5);
+    }
+}
+
+.table{
+    text-align: center;
+    border: 2px solid lightblue;
+    thead{
+        background-color:rgb(48, 45, 75);
+        th{
+            border-bottom: 1px solid lightblue;
+        }
+        
+    }
+    tbody{
+
+        
+
+        tr:nth-child(odd){
+            background-color: rgb(52, 63, 66);
+        }
+        tr:nth-child(even){
+            background-color: rgb(75, 37, 37);
+        }
+        
+        th, td{
+            vertical-align: middle;
+            border-top: 1px solid lightblue;
+            border-bottom: 1px solid lightblue;
+        }
+    }
+}
+
+.action-button{
+    font-size:24px;
+}
+
+.modal-dark{
+    background-color: rgb(15, 15, 29);
+    border: 1px solid lightblue;
+}

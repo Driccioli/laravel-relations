@@ -10,6 +10,6 @@ class Article extends Model
         return $this->hasMany('App\Author');
     }
     public function tags(){
-        return $this->hasMany('App\Tag');
+        return $this->belongsToMany('App\Tag', 'tags_articles');
     }
 }

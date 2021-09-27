@@ -36,7 +36,13 @@
                         <td>{{$article->subtitle}}</td>
                         <td>{{$article->author_id}}</td>
                         {{-- <td>{{$article->authors()->name}} {{$article->authors()->last_name}}</td> --}}
-                        <td>{{$article->tags->pivot->tagLabel}}</td>
+                        {{-- @dd($article->tags) --}}
+                        
+                        <td>
+                            @foreach ($article->tags as $tag)
+                            {{$tag->tagLabel}}
+                            @endforeach    
+                        </td>
                         <td><img src="{{$article->picture_url}}" alt="Picture"></td>
                         <td>{{$article->content}}</td>
                         <td>

@@ -43,9 +43,10 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $data= $request->all();
+        // dd($request);
         $newArticle = new Article();
         $this->fillAndSaveArticle($newArticle, $data);
-
+        
         return redirect()->route('articles.show', $newArticle->id);
     }
 

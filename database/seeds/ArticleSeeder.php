@@ -46,12 +46,14 @@ class ArticleSeeder extends Seeder
             $authorId = $authorListId[$randAuthorKey];
             $article->author_id = $authorId;
 
+            $article->save();
+            
             $randTagKey = array_rand($tagListId, 1);
             $tagId = $tagListId[$randTagKey];
-            $article->tag_id = $tagId;
+            $article->tags()->attach($tagId);
 
 
-            $article->save();
+            
         }
     }
 }

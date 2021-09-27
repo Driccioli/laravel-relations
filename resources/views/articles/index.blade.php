@@ -20,6 +20,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Subtitle</th>
                     <th scope="col">Author</th>
+                    <th scope="col">Tags</th>
                     <th scope="col">Picture</th>
                     <th scope="col">Content</th>
                     <th scope="col">Actions</th>
@@ -34,6 +35,8 @@
                         <td>{{$article->title}}</td>
                         <td>{{$article->subtitle}}</td>
                         <td>{{$article->author_id}}</td>
+                        {{-- <td>{{$article->authors()->name}} {{$article->authors()->last_name}}</td> --}}
+                        <td>{{$article->tags->pivot->tagLabel}}</td>
                         <td><img src="{{$article->picture_url}}" alt="Picture"></td>
                         <td>{{$article->content}}</td>
                         <td>

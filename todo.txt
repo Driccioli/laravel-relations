@@ -1,0 +1,8 @@
+1) Inseriamo model e migration di tags (lanciamo migrazione) [DONE]
+2) Inseriamo nel model Tag il belongsToMany [DONE]
+3) Inseriamo nel model Article il belongsToMany [DONE]
+4) Creiamo migrazione della tabella intermedia [DONE]
+5) Nel seeder inseriamo semplicemente una lista predefinita di tag, per l’occasione possiamo creare un seeder a parte che crea solo i tag [DONE]
+6) Lavoriamo nella create e store [DONE]
+7) Invio alla create lista di tags, per ogni tag stampo una checkbox [DONE]
+8) Nello store eseguo l’attach solo dei tag ricevuti nella request [DONE]

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Tag;
 
 class ArticleController extends Controller
 {
@@ -14,8 +15,12 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        // $tags = Tag::all();
+        // dd($tags);
+        
         $articles = Article::all();
-        return view('articles.index', compact('articles')); 
+        $tags = Tag::all();
+        return view('articles.index', compact('articles'), compact('tags')); 
     }
 
     /**
@@ -25,7 +30,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $tags = Tag::all();
+        return view('articles.create', compact('tags'));
     }
 
     /**
@@ -38,7 +44,7 @@ class ArticleController extends Controller
     {
         $data= $request->all();
         $newArticle = new Article();
-        $this->fillAndSaveArticle($article, $data);
+        $this->fillAndSaveArticle($newArticle, $data);
 
         return redirect()->route('articles.show', $newArticle->id);
     }
@@ -100,5 +106,7 @@ class ArticleController extends Controller
         $article->author_id = $data['author_id'];
 
         $article->save();
+
+        $article->tags()->sync($data['tags']);
     }
 }

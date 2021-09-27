@@ -21,7 +21,7 @@
         </div>
 
         <div class="form-group">
-            <label for="subtitle">subtitle</label>
+            <label for="subtitle">Subtitle</label>
             <input class="form-control" type="text" name="subtitle" id="subtitle">
         </div>
 
@@ -32,9 +32,7 @@
         
         <div class="form-group">
             <label for="content">Article Content</label>
-            <textarea class="form-control" name="content" id="content" rows="4">
-            
-            </textarea>
+            <textarea class="form-control" name="content" id="content" rows="4"></textarea>
         </div>
 
         <div class="form-group">
@@ -42,6 +40,18 @@
             <input class="form-control" type="text" name="author_id" id="author_id">
         </div>
 
+        <div class="form-group">
+            
+            @foreach ($tags as $tag)
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="{{$tag->tagLabel}}">
+                <label class="form-check-label" for="{{$tag->tagLabel}}">
+                {{$tag->tagLabel}}
+                </label>
+            </div>
+            @endforeach
+            
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
 
     </form> 

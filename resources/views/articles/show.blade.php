@@ -20,7 +20,7 @@
             <h6>Date updated: {{$article->updated_at}}</h6>
         @endif
         <img src="{{$article->picture_url}}" alt="">
-        <h6>Author: {{$article->author_id}}</h6>
+        <h6>Author: {{$article->author->name}} {{$article->author->last_name}}</h6>
         
         <p>{{$article->content}}</p>
         {{-- <button type="button" class="btn btn-primary action-button">

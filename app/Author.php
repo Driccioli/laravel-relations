@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
-   public function articles(){
-       return $this->belongsToMany('App\Article');
+   public function article(){
+       return $this->hasMany('App\Article');
    }
 }

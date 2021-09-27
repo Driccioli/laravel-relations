@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Author;
 use App\Tag;
 
 class ArticleController extends Controller
@@ -19,8 +20,9 @@ class ArticleController extends Controller
         // dd($tags);
         
         $articles = Article::all();
+        $authors= Author::all();
         $tags = Tag::all();
-        return view('articles.index', compact('articles'), compact('tags')); 
+        return view('articles.index', compact('articles'), compact('authors'), compact('tags')); 
     }
 
     /**

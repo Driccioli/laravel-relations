@@ -34,9 +34,12 @@
                         <td>{{$article->created_at}}</td>
                         <td>{{$article->title}}</td>
                         <td>{{$article->subtitle}}</td>
-                        <td>{{$article->author_id}}</td>
-                        {{-- <td>{{$article->authors()->name}} {{$article->authors()->last_name}}</td> --}}
-                        {{-- @dd($article->tags) --}}
+                        {{-- <td>{{$article->author_id}}</td> --}}
+                        <td>
+                            {{$article->author->name}}
+                            {{$article->author->last_name}}
+                        </td>
+                        {{-- @dd($article->authors()) --}}
                         
                         <td>
                             @foreach ($article->tags as $tag)

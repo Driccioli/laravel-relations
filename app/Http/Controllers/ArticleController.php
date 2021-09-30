@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Article;
 use App\Author;
 use App\Tag;
+use App\Mail\SendNewMail;
+use Illuminate\Support\Facades\Mail;
+
 
 class ArticleController extends Controller
 {
@@ -49,6 +52,8 @@ class ArticleController extends Controller
         $newArticle = new Article();
         $this->fillAndSaveArticle($newArticle, $data);
         
+        Mail::to('trial@test.it')->send(new SendNewMail($newArticle));
+
         return redirect()->route('articles.show', $newArticle->id);
     }
 

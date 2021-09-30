@@ -8,7 +8,7 @@ use App\Author;
 use App\Tag;
 use App\Mail\SendNewMail;
 use Illuminate\Support\Facades\Mail;
-
+use Illuminate\Support\Facades\Storage; 
 
 class ArticleController extends Controller
 {
@@ -52,6 +52,7 @@ class ArticleController extends Controller
         $newArticle = new Article();
         $this->fillAndSaveArticle($newArticle, $data);
         
+       
         Mail::to('trial@test.it')->send(new SendNewMail($newArticle));
 
         return redirect()->route('articles.show', $newArticle->id);
@@ -109,10 +110,12 @@ class ArticleController extends Controller
         
         $article->title = $data['title'];
         $article->subtitle = $data['subtitle'];
-        $article->picture_url = $data['picture_url'];
+        // $article->picture_url = $data['picture_url'];
         $article->content = $data['content'];
         $article->author_id = $data['author_id'];
 
+        $picture_path = Storage::put('images', $data['pictureFile']);
+        $article->picture_url = $picture_path;
         $article->save();
 
         $article->tags()->sync($data['tags']);

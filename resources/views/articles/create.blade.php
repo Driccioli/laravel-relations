@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}" rel="stylesheet">
 </head>
 <body>
-    <form class="p-5 single-post" action="{{route('articles.store')}}" method="post">
+    <form class="p-5 single-post" action="{{route('articles.store')}}" method="post" enctype="multipart/form-data">
 
         @csrf
         <button type="button" class="btn btn-primary action-button">
@@ -26,8 +26,8 @@
         </div>
 
         <div class="form-group">
-            <label for="picture_url">Picture(must be an URL)</label>
-            <input class="form-control" type="text" name="picture_url" id="picture_url">
+            <label for="pictureFile">Picture</label>
+            <input class="form-control" type="file" name="pictureFile" id="pictureFile">
         </div>
         
         <div class="form-group">

@@ -46,7 +46,10 @@
                             {{$tag->tagLabel}}
                             @endforeach    
                         </td>
-                        <td><img src="{{$article->picture_url}}" alt="Picture"></td>
+                        <td>
+                            <img src="{{$article->picture_url}}" alt="Picture">
+                            <img src="{{asset('storage/'.$article->picture_url)}}" alt="">
+                        </td>
                         <td>{{$article->content}}</td>
                         <td>
                             <button type="button" class="btn btn-primary action-button mb-2">
